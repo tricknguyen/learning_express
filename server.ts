@@ -1,12 +1,14 @@
 import { router } from "./routes/subscribers";
+import express, { Express, Request, Response } from 'express';
+import dotenv from 'dotenv';
+import mongoose from "mongoose";
 
-require("dotenv").config();
+dotenv.config();
+const uri = process.env.MONGO_URL as string;
 
-const express = require("express");
-const app = express();
-const mongoose = require("mongoose");
+const app: Express = express();
 
-mongoose.connect(process.env.MONGO_URL, { useNewUrlParser: true })
+mongoose.connect(uri)
 const db = mongoose.connection;
 
 db.on("error", (error: String) => console.log(error));

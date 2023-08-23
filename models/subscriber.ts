@@ -5,13 +5,13 @@ const subscribersSchema = new Schema({
         type: String,
         required: true
     },
-    subscribersToChannel: {
+    subscribedToChannel: {
         type: String,
         required: true
     },
     subscribeDate: {
         type: Date,
-        required: true,
+        required: true, 
         default: Date.now
     }
 });
